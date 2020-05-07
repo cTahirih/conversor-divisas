@@ -1,0 +1,8 @@
+@import './colors';
+@import './_normalize';
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~bootstrap/scss/bootstrap-grid.scss";
+
+body {
+  font-family: 'robotoregular', sans-serif;
+}
