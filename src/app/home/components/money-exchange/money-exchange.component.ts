@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-money-exchange',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoneyExchangeComponent implements OnInit {
 
-  constructor() { }
+  moneyExchange: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit(): void {
+    this.moneyExchange = this.formBuilder.group({
+      soles: [null, Validators.required],
+      dollar: [null]
+    });
   }
 
 }
