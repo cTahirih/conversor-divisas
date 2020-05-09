@@ -1,1 +1,20 @@
-<p>money-exchange works!</p>
+<form [formGroup]="moneyExchange">
+  <div class="form-group">
+    <label class="color-little-dark f-roboto-reg" for="soles">Monto a cambiar</label>
+    <input
+      class="form-control form-control-lg"
+      formControlName="soles"
+      id="soles"
+      type="tel"
+      placeholder="Ingrese monto en soles">
+  </div>
+  <div class="form-group mb-0">
+    <label class="color-little-dark f-roboto-reg" for="dollar">Monto en dólares</label>
+    <input
+      formControlName="dollar"
+      type="tel"
+      class="form-control form-control-lg"
+      id="dollar"
+    >
+  </div>
+</form>
