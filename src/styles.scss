@@ -9,7 +9,7 @@ body {
 }
 
 .max-width {
-  max-width: 1200px;
+  max-width: 1000px;
 }
 
 .color-dark-turq {
@@ -18,6 +18,10 @@ body {
 
 .color-black {
   color: $black;
+}
+
+.color-little-dark {
+  color: $litle-dark;
 }
 
 .color-red {
