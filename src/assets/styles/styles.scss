@@ -6,3 +6,8 @@
 body {
   font-family: 'robotoregular', sans-serif;
 }
+
+input:focus {
+  border-color: $dark-turq!important;
+  box-shadow: none!important;
+}
