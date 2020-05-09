@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/styles/styles";
+
+body {
+  background-color: $gray!important;
+}
+
+.f-roboto-reg {
+  font-family: 'robotoregular', sans-serif;
+}
+
+.max-width {
+  max-width: 1200px;
+}
+
+.color-dark-turq {
+  color: $dark-turq;
+}
+
+.color-black {
+  color: $black;
+}
+
+.color-red {
+  color: $red;
+}
