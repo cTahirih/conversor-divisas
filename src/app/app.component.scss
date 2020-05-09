@@ -1,0 +1,13 @@
+@import "src/assets/styles/colors";
+
+.title-app {
+  &:after {
+    content: " ";
+    display: block;
+    border: 1.5px solid $dark-turq;
+    background: $dark-turq;
+    width: 40px;
+    height: 1px;
+    margin-top: 10px;
+  }
+}
