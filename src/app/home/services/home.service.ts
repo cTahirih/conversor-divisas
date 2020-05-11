@@ -6,4 +6,8 @@ import { Injectable } from '@angular/core';
 export class HomeService {
 
   constructor() { }
+
+  getRateOfExchange() {
+    return 3.35;
+  }
 }
