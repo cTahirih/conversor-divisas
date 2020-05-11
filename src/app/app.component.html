@@ -1,7 +1,10 @@
 <div class="container-fluid max-width min-vh-100 py-3">
   <div class="row">
-    <div class="col-12 mb-4">
+    <div class="col-12 col-md-8 mb-4">
       <h1 class="title-app f-roboto-reg color-little-dark"> {{ title }} </h1>
+    </div>
+    <div class="col-12 col-md-4 mb-4 text-right">
+      <p class="color-dark-turq font-weight-bold">Tipo de Cambio: {{ rateExchange }}</p>
     </div>
   </div>
   <router-outlet></router-outlet>
