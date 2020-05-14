@@ -8,7 +8,10 @@
       type="tel"
       placeholder="Ingrese monto en soles"
     >
+    <small *ngIf="formControlSoles.errors" class="error-msj">
+      Ingrese solo valores numéricos, para decimales separe con punto. Ejm 2.34</small>
   </div>
+
   <div class="form-group mb-0">
     <label class="color-little-dark f-roboto-reg" for="dollar">Monto en dólares</label>
     <input
@@ -16,7 +19,6 @@
       type="tel"
       class="form-control form-control-lg"
       id="dollar"
-      [value]="moneyExchange.value.dollar | currency:'$/.':true:'2.2'"
       placeholder="$0.00"
     >
   </div>
