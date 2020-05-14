@@ -3,7 +3,7 @@
     <div class="col-12 col-md-8 mb-4">
       <h1 class="title-app f-roboto-reg color-little-dark"> {{ title }} </h1>
     </div>
-    <div class="col-12 col-md-4 mb-4 text-right">
+    <div class="col-12 col-md-4 mb-4 text-right" *ngIf="this.rateExchange">
       <p class="color-little-dark">Tipo de Cambio: <strong>{{ rateExchange }}</strong></p>
     </div>
   </div>
