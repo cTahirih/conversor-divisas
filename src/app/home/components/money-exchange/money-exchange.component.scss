@@ -1,5 +1,12 @@
+@import "src/assets/styles/colors";
+
 .form-control {
   &:disabled {
     background-color: #f8f8f8;
   }
+}
+
+input:focus {
+  border-color: $dark-turq!important;
+  box-shadow: none!important;
 }
