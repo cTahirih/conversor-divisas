@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { HomeService } from '../../services/home.service';
+import { NUMBER } from '../../../core/config/regex.const';
+import { MoneyExchangeInterface } from '../../interfaces/money-exchange.interface';
 
 @Component({
   selector: 'app-money-exchange',
@@ -20,20 +22,38 @@ export class MoneyExchangeComponent implements OnInit {
 
   ngOnInit(): void {
     this.moneyExchange = this.formBuilder.group({
-      soles: [null, Validators.required],
-      dollar: [null]
+      soles: [null, [Validators.pattern(NUMBER)]],
+      dollar: [{value: null, disabled: true}]
     });
 
-    this.calculateAmount();
-    this.rateExchange = this.homeService.getRateOfExchange();
+    this.homeService.getRateOfExchange('USD').subscribe(
+      (response: MoneyExchangeInterface) => {
+        this.rateExchange = response.value;
+      }
+    );
+
+    this.moneyExchange.controls.soles.valueChanges.subscribe((value) => {
+      if (this.formControlSoles.errors) {
+        this.formControlSoles.setErrors({
+          error: true
+        });
+        return;
+      }
+
+      this.calculateAmount(value);
+    });
+
   }
 
-  calculateAmount() {
-    this.moneyExchange.controls.soles.valueChanges.subscribe((value) => {
+  calculateAmount(value) {
+    const amount = Number(value) * this.rateExchange;
 
-      const amount = Number(value) * this.rateExchange;
-      this.moneyExchange.controls.dollar.setValue(amount * 3);
+    const valueDollar = Math.round(amount * 100) / 100;
 
-    });
+    this.moneyExchange.controls.dollar.setValue(valueDollar);
+  }
+
+  get formControlSoles() {
+    return this.moneyExchange.controls.soles as FormControl;
   }
 }
