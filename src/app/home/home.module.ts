@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 /*components*/
@@ -17,6 +18,7 @@ import { MenuListComponent } from './components/menu-list/menu-list.component';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     ReactiveFormsModule
   ]
 })
