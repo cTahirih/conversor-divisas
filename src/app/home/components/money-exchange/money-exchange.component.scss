@@ -10,3 +10,10 @@ input:focus {
   border-color: $dark-turq!important;
   box-shadow: none!important;
 }
+
+.error-msj {
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: $red;
+}
