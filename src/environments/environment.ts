@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  urlBase: {
+    exchangeApi: 'https://prime.exchangerate-api.com/v5/'
+  },
+  endpoints: {
+    pen: '56d9b7888d4dd190d5a86f8d/latest/PEN'
+  }
 };
 
 /*
