@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { HomeService } from './home/services/home.service';
+import { MoneyExchangeInterface } from './home/interfaces/money-exchange.interface';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,10 @@ export class AppComponent {
   constructor(
     private homeService: HomeService
   ) {
-    this.rateExchange = this.homeService.getRateOfExchange();
+    this.homeService.getRateOfExchange('USD').subscribe(
+      (response: MoneyExchangeInterface) => {
+        this.rateExchange = response.value;
+      }
+    );
   }
 }
