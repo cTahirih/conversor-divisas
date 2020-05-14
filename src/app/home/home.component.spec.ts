@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormBuilder } from '@angular/forms';
 
 import { HomeComponent } from './home.component';
 import { MoneyExchangeComponent } from './components/money-exchange/money-exchange.component';
@@ -14,6 +16,12 @@ describe('HomeComponent', () => {
         HomeComponent,
         MoneyExchangeComponent,
         MenuListComponent
+      ],
+      imports: [
+        HttpClientTestingModule
+      ],
+      providers: [
+        FormBuilder
       ]
     })
     .compileComponents();

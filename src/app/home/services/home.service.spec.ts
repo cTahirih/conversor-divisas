@@ -34,7 +34,7 @@ describe('HomeService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should ', () => {
+  it('should return observable and set the CODE using http get response', () => {
     const dataFromServer: any = {
       base: 'PEN',
       conversion_rates: {
