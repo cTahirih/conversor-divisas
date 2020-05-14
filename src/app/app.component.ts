@@ -17,7 +17,7 @@ export class AppComponent {
   ) {
     this.homeService.getRateOfExchange('USD').subscribe(
       (response: MoneyExchangeInterface) => {
-        this.rateExchange = response.value;
+        this.rateExchange = Math.round(response.value * 100) / 100;
       }
     );
   }
