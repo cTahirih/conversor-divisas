@@ -7,6 +7,9 @@
       id="soles"
       type="tel"
       placeholder="Ingrese monto en soles"
+      [ngClass]="{
+       'is-invalid': formControlSoles.errors
+      }"
     >
     <small *ngIf="formControlSoles.errors" class="error-msj">
       Ingrese solo valores numéricos, para decimales separe con punto. Ejm 2.34</small>
