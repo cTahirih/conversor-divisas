@@ -26,13 +26,29 @@ export class MoneyExchangeComponent implements OnInit {
       dollar: [{value: null, disabled: true}]
     });
 
+    this.getRateExchange();
+    this.formControlSolesOnChanges();
+  }
+
+  calculateAmount(value) {
+    const amount = Number(value) * this.rateExchange;
+
+    const valueDollar = Math.round(amount * 100) / 100;
+
+    this.moneyExchange.controls.dollar.setValue(valueDollar);
+  }
+
+  getRateExchange() {
     this.homeService.getRateOfExchange('USD').subscribe(
       (response: MoneyExchangeInterface) => {
         this.rateExchange = response.value;
       }
     );
+  }
 
+  formControlSolesOnChanges() {
     this.moneyExchange.controls.soles.valueChanges.subscribe((value) => {
+
       if (this.formControlSoles.errors) {
         this.formControlSoles.setErrors({
           error: true
@@ -42,15 +58,6 @@ export class MoneyExchangeComponent implements OnInit {
 
       this.calculateAmount(value);
     });
-
-  }
-
-  calculateAmount(value) {
-    const amount = Number(value) * this.rateExchange;
-
-    const valueDollar = Math.round(amount * 100) / 100;
-
-    this.moneyExchange.controls.dollar.setValue(valueDollar);
   }
 
   get formControlSoles() {
